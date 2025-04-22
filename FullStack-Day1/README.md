@@ -7,6 +7,7 @@ This hook fetches data from a given URL and caches the response in `sessionStora
 
 ```markdown
 npm install
+npm run dev
 ```
 
 ## Usage
