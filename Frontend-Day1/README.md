@@ -44,6 +44,5 @@ npm run dev
 ```markdown
 npm run test
 ```
-
+## Licence
 Happy coding!
-```
