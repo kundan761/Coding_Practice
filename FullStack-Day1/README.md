@@ -1,11 +1,11 @@
-```markdown
+
 # useFetch Cache Hook
 
 This hook fetches data from a given URL and caches the response in `sessionStorage` for 5 minutes to avoid repeated network requests. After the cache expires, the hook automatically refetches the data from the network. It also provides a `refetch` function to manually bypass the cache and fetch fresh data.
 
 ## Installation
 
-```bash
+```markdown
 npm install
 ```
 
@@ -14,26 +14,32 @@ npm install
 ### Basic Usage
 
 ```jsx
-import useFetch from './hooks/useFetch';
+import React from 'react'
+import useFetch from '../hooks/useFetch';
 
-const MyComponent = () => {
-  const { data, loading, error, refetch } = useFetch('https://jsonplaceholder.typicode.com/posts');
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
+const ServerCheck = () => {
+    const {data, error, loading, refetch} = useFetch('https://jsonplaceholder.typicode.com/posts');
   return (
-    <div>
-      <h2>Posts</h2>
-      <ul>
-        {data.map(post => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
-      <button onClick={refetch}>Refetch</button>
+    <>
+    <div style={{padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '5px', fontFamily: 'Arial, sans-serif'}}>
+        <h2>Post Lists</h2>
+        {loading && <p>Loading...</p>}
+        {error && <p style={{color: 'red'}}>Error: {error.message}</p>}
+        {data && (
+            <ul>
+                {data.slice(0, 30).map((item) => (
+                    <li key={item.id}>{item.title}</li>
+                ))}
+            </ul>
+        )}
+        <button onClick={refetch} style={{marginTop: '10px'}}>Refetch</button>
+
     </div>
-  );
-};
+    </>
+  )
+}
+
+export default ServerCheck
 ```
 
 ### Explanation of TTL (Time to Live)
