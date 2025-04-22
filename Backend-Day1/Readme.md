@@ -35,7 +35,11 @@ MAX_SIZE_MB=2
 curl -X POST http://localhost:3000/api/upload 
   -F "image=@/path/to/image.jpg"
 ```
-
+## Testing
+Testing done using supertest and vitest
+```
+npm test
+```
 ## Licence
 ```
 Happy Coding!
