@@ -16,7 +16,7 @@ This is a simple Node.js/Express backend to upload PNG or JPEG files (≤ 2 MB) 
 
 ```bash
 npm i
-node index.js
+npm run start
 ```
 
 ## 🔐 .env Sample
