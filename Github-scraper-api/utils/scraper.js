@@ -11,7 +11,6 @@ export const scrapeGitHubProfile = async (username) => {
   try {
     await page.goto(url, { waitUntil: 'networkidle2' });
 
-    // Wait for the main profile elements to load
     await page.waitForSelector('h1.vcard-names', { timeout: 5000 }).catch(() => {});
 
     const data = await page.evaluate(() => {
@@ -29,7 +28,6 @@ export const scrapeGitHubProfile = async (username) => {
       return { name, username, bio, repositories, followers, following };
     });
 
-    // Navigate to the repositories tab to get top repositories
     const repoUrl = `${url}?tab=repositories`;
     await page.goto(repoUrl, { waitUntil: 'networkidle2' });
 
