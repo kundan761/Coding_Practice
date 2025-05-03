@@ -40,7 +40,7 @@ const HomePage = () => {
         <button onClick={() => setPage((p) => Math.max(p - 1, 1))}>
           Previous
         </button>
-        <span>Page {page}</span>
+        <span >Page {page}</span>
         <button onClick={() => setPage((p) => p + 1)}>Next</button>
       </div>
     </div>
