@@ -1,0 +1,24 @@
+.homepage {
+  padding: 1rem;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pagination {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: last baseline;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

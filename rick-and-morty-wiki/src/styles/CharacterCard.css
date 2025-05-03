@@ -1,0 +1,25 @@
+.character-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5rem;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    background-color: #f9f9f9;
+  }
+  
+  .character-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .character-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  
+  .card-content {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
