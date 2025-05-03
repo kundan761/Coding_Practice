@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/HomePage.css";
 import CharacterCard from "../components/CharacterCard";
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "../components/ThemeToggle.jsx";
 
 const HomePage = () => {
   const [characters, setCharacters] = useState([]);
@@ -23,7 +24,13 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <h1>Rick and Morty Characters</h1>
-      <button onClick={handleRandomClick} className="random-btn">Random Character</button>
+      <div className="controls">
+        <button onClick={handleRandomClick} className="random-btn">
+          Random Character
+        </button>
+        <ThemeToggle />
+      </div>
+
       <div className="grid">
         {characters.map((char) => (
           <CharacterCard key={char.id} character={char} />
