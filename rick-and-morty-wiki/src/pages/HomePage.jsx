@@ -12,7 +12,7 @@ const HomePage = () => {
 
   const handleRandomClick = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
-    navigate(`https://rick-and-morty-wiki-vert.vercel.app/character/${randomId}`);
+    navigate(`https://rickandmortyapi.com/apicharacter/${randomId}`);
   };
 
   useEffect(() => {
