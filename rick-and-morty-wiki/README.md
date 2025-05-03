@@ -2,13 +2,14 @@
 
 A dynamic and responsive React app that fetches and displays character data from the Rick and Morty API.
 
-Key features include:
+## Features:
 
-- Paginated 3×2 character grid (6 per page)
-- Character detail page with rich info
-- Light/Dark theme toggle
-- Live footer clock
-- Random character button
+- 🔍 Character gallery with image, name, species, and status
+- ⏱️ Live-updating footer clock (HH:MM:SS Day Date)
+- 🔄 Pagination with exactly 6 characters per page (3×2 grid)
+- 🎭 Clickable character cards with detailed view in new tab
+- 🌓 Light/Dark theme toggle
+- 🎲 Random character button
 
 ## 📁 Folder Structure
 
@@ -35,18 +36,21 @@ Key features include:
 
 ## 🚀 Getting Started
 
-Clone the repository and install dependencies:
 
+### Clone the project:
+```bash
+git clone https://github.com/kundan761/Coding_Practice/tree/main/rick-and-morty-wiki
+cd rick-and-morty-wiki
+```
+### Install dependencies:
 ```bash
 npm install
-npm run dev
-````
-
-To build for production:
-
-```bash
-npm run build
 ```
+### Run locally
+```bash
+npm run dev
+```
+
 ## 📦 Tech Stack
 - React
 
