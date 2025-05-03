@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from "react";
 import "../styles/HomePage.css";
 import CharacterCard from "../components/CharacterCard";
@@ -12,7 +14,7 @@ const HomePage = () => {
 
   const handleRandomClick = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
-    navigate(`https://rickandmortyapi.com/apicharacter/${randomId}`);
+    navigate(`/character/${randomId}`);
   };
 
   useEffect(() => {
