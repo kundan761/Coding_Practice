@@ -34,8 +34,12 @@ A dynamic and responsive React app that fetches and displays character data from
  └─ main.jsx
 ```
 
-## 🚀 Getting Started
+## 🔗 Deployed Link
 
+Live App: [App Deployed Link](https://rick-and-morty-wiki-vert.vercel.app/)
+
+
+## 🚀 Getting Started
 
 ### Clone the project:
 ```bash
@@ -77,10 +81,6 @@ npm run dev
 
 * **Clock Component**: Reusable footer clock that updates every second and displays formatted local time and date.
 
-
-## 🔗 Deployed Link
-
-Live App: [https://rick-and-morty-wiki-vert.vercel.app/](https://rick-and-morty-wiki-vert.vercel.app/)
 
 ## 🪪 License
 ```
