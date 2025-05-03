@@ -5,13 +5,10 @@ import { useNavigate } from "react-router-dom";
 import ThemeToggle from "../components/ThemeToggle.jsx";
 
 const HomePage = () => {
-  const [characters, setCharacters] = useState([]);
-  const [apiPage, setApiPage] = useState(1);
-  const [subPage, setSubPage] = useState(1); 
-  const [maxSubPage, setMaxSubPage] = useState(1);
-
+  const [allCharacters, setAllCharacters] = useState([]);
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 6;
   const navigate = useNavigate();
-  const itemsPerSubPage = 6;
 
   const handleRandomClick = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
@@ -19,38 +16,33 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character?page=${apiPage}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCharacters(data.results);
-        setSubPage(1); // reset sub-page when new API page is loaded
-        setMaxSubPage(Math.ceil(data.results.length / itemsPerSubPage));
-      })
-      .catch((err) => console.error(err));
-  }, [apiPage]);
+    const fetchAllCharacters = async () => {
+      try {
+        let characters = [];
+        let nextUrl = "https://rickandmortyapi.com/api/character";
+        while (nextUrl) {
+          const res = await fetch(nextUrl);
+          const data = await res.json();
+          characters = characters.concat(data.results);
+          nextUrl = data.info.next;
+        }
+        setAllCharacters(characters);
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
-  const startIndex = (subPage - 1) * itemsPerSubPage;
-  const selectedCharacters = characters.slice(startIndex, startIndex + itemsPerSubPage);
+    fetchAllCharacters();
+  }, []);
 
-  const handlePrev = () => {
-    if (subPage > 1) {
-      setSubPage((p) => p - 1);
-    } else if (apiPage > 1) {
-      setApiPage((p) => p - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (subPage < maxSubPage) {
-      setSubPage((p) => p + 1);
-    } else {
-      setApiPage((p) => p + 1);
-    }
-  };
+  const totalPages = Math.ceil(allCharacters.length / itemsPerPage);
+  const startIndex = (page - 1) * itemsPerPage;
+  const selectedCharacters = allCharacters.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="homepage">
       <h1>Rick and Morty Characters</h1>
+
       <div className="controls">
         <button onClick={handleRandomClick} className="random-btn">
           Random Character
@@ -65,13 +57,11 @@ const HomePage = () => {
       </div>
 
       <div className="pagination">
-        <button onClick={handlePrev} disabled={apiPage === 1 && subPage === 1}>
+        <button onClick={() => setPage((p) => Math.max(p - 1, 1))} disabled={page === 1}>
           Previous
         </button>
-        <span>
-          Page {((apiPage - 1) * maxSubPage) + subPage}
-        </span>
-        <button onClick={handleNext} disabled={characters.length < itemsPerSubPage && subPage === maxSubPage}>
+        <span>Page {page} of {totalPages}</span>
+        <button onClick={() => setPage((p) => Math.min(p + 1, totalPages))} disabled={page === totalPages}>
           Next
         </button>
       </div>
