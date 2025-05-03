@@ -5,6 +5,7 @@ import "../styles/HomePage.css";
 import CharacterCard from "../components/CharacterCard";
 import { useNavigate } from "react-router-dom";
 import ThemeToggle from "../components/ThemeToggle.jsx";
+import Clock from "../components/Clock.jsx";
 
 const HomePage = () => {
   const [allCharacters, setAllCharacters] = useState([]);
@@ -67,6 +68,7 @@ const HomePage = () => {
           Next
         </button>
       </div>
+      <Clock />
     </div>
   );
 };

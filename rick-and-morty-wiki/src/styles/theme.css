@@ -9,6 +9,9 @@ body.dark .character-card {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
 }
 
+body.dark .footer-clock{
+  color: white;
+}
 body {
   background-color: #ffffff;
   color: #000000;
