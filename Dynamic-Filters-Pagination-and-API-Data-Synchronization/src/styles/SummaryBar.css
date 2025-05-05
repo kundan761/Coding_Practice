@@ -1,0 +1,27 @@
+.summary-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.95rem;
+  }
+  
+  .active-filters span {
+    margin-right: 1rem;
+    background: #eef;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+  
+  .active-filters button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  
